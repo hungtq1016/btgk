@@ -19,7 +19,7 @@
               Trang chủ
             </router-link>
             <router-link to="/about" class="navbar-item">About</router-link>
-            <router-link to="/product" class="navbar-item">Product</router-link>
+            <router-link to="/products" class="navbar-item">Product</router-link>
             
           </div>
       

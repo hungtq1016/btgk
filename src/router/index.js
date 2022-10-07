@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import TopPage from '../views/TopPage.vue';
 import About from '../views/AboutPage.vue';
-import Product from '../views/ProductPage.vue';
+import Products from '../views/ProductPage.vue';
+import Product from '../views/ProductDetail.vue';
 import Error from '../views/ErrorPage.vue';
 
 const router = createRouter({
@@ -10,7 +11,8 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'home', component: TopPage},
     { path: '/about', name: 'about', component: About},
-    { path: '/product', name: 'product', component: Product},
+    { path: '/products', name: 'products', component: Products},
+    { path: '/products/:id', name: 'product-detail', component: Product},
     { path: '/:pathMatch(.*)*', name: 'error', component: Error},
   ]
 })
