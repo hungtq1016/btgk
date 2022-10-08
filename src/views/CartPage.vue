@@ -4,7 +4,7 @@
             <div class="has-background-white p-8 p-20-desktop">
                 <h2 class="title mb-8 mb-20-tablet">Giỏ Hàng Của Bạn</h2>
                 <div class="columns is-multiline is-vcentered">
-                    <div class="column is-12 is-8-widescreen mb-8 mb-0-widescreen">
+                    <div class="column is-12 mb-8 mb-0-widescreen">
                         <div class="is-hidden-touch columns is-multiline" style="border-bottom: 1px solid grey;">
                             <div class="column is-6">
                                 <h4 class="has-text-grey has-text-weight-bold mb-6" style="font-size: 16px;">Thông tin
@@ -22,113 +22,15 @@
                                 </h4>
                             </div>
                         </div>
-                        <div class="mb-12 py-6">
-                            <div class="mb-6 mb-3-tablet columns is-vcentered is-multiline">
-                                <div class="column is-6-desktop is-7-tablet mb-6 mb-0-tablet">
-                                    <div class="columns is-vcentered is-multiline">
-                                        <div class="column is-4 mb-3">
-                                            <div class="is-flex has-background-light is-justify-content-center is-align-items-center"
-                                                style="width: 96px; height: 128px;">
-                                                <img class="image is-fullwidth" style="object-fit: contain;"
-                                                    src="yofte-assets/images/waterbottle.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="column is-8">
-                                            <h3 class="subtitle mb-2 has-text-weight-bold">BRILE water filter carafe
-                                            </h3>
-                                            <p class="mb-0 has-text-grey">Maecenas 0.7 commodo sit</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column is-2 is-hidden-touch">
-                                    <p class="subtitle has-text-info mb-0 has-text-weight-bold">$29.89</p>
-                                    <span class="has-text-grey" style="text-decoration: line-through;">$33.69</span>
-                                </div>
-                                <div class="column is-2-desktop is-3-tablet">
-                                    <div class="px-4 is-inline-flex is-align-items-center has-text-weight-bold"
-                                        style="border: 1px solid #DBDDE1; border-radius: 8px;">
-                                        <button class="button is-ghost has-text-grey p-0">
-                                            <svg width="12" height="2" viewbox="0 0 12 2" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.35">
-                                                    <rect x="12" width="2" height="12" transform="rotate(90 12 0)"
-                                                        fill="currentColor"></rect>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <input class="input px-2 py-4 has-text-centered"
-                                            style="width: 48px; border: none; box-shadow: none;" type="number"
-                                            placeholder="1">
-                                        <button class="button is-ghost has-text-grey p-0">
-                                            <svg width="12" height="12" viewbox="0 0 12 12" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.35">
-                                                    <rect x="5" width="2" height="12" fill="currentColor"></rect>
-                                                    <rect x="12" y="5" width="2" height="12" transform="rotate(90 12 5)"
-                                                        fill="currentColor"></rect>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="column is-2">
-                                    <p class="subtitle has-text-info has-text-weight-bold">$29.89</p>
-                                </div>
-                            </div>
-                            <div class="columns is-vcentered is-multiline">
-                                <div class="column is-6-desktop is-7-tablet mb-6 mb-0-tablet">
-                                    <div class="columns is-vcentered is-multiline">
-                                        <div class="column is-4-tablet mb-3">
-                                            <div class="is-flex has-background-light is-justify-content-center is-align-items-center"
-                                                style="width: 96px; height: 128px;">
-                                                <img class="image is-fullwidth" style="object-fit: contain;"
-                                                    src="yofte-assets/images/basketball.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="column is-8">
-                                            <h3 class="subtitle mb-2 has-text-weight-bold">Nike basketball ball</h3>
-                                            <p class="mb-0 has-text-grey">Maecenas 0.7 commodo sit</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column is-2 is-hidden-touch">
-                                    <p class="subtitle has-text-info mb-0 has-text-weight-bold">$29.89</p>
-                                    <span class="has-text-grey" style="text-decoration: line-through;">$33.69</span>
-                                </div>
-                                <div class="column is-2-desktop is-3-tablet">
-                                    <div class="px-4 is-inline-flex is-align-items-center has-text-weight-bold"
-                                        style="border: 1px solid #DBDDE1; border-radius: 8px;">
-                                        <button class="button is-ghost has-text-grey p-0">
-                                            <svg width="12" height="2" viewbox="0 0 12 2" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.35">
-                                                    <rect x="12" width="2" height="12" transform="rotate(90 12 0)"
-                                                        fill="currentColor"></rect>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <input class="input px-2 py-4 has-text-centered"
-                                            style="width: 48px; border: none; box-shadow: none;" type="number"
-                                            placeholder="1">
-                                        <button class="button is-ghost has-text-grey p-0">
-                                            <svg width="12" height="12" viewbox="0 0 12 12" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.35">
-                                                    <rect x="5" width="2" height="12" fill="currentColor"></rect>
-                                                    <rect x="12" y="5" width="2" height="12" transform="rotate(90 12 5)"
-                                                        fill="currentColor"></rect>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="column is-2">
-                                    <p class="subtitle has-text-info has-text-weight-bold">$29.89</p>
-                                </div>
-                            </div>
+                        <div v-if="countItem">
+                            <CartItem v-for="value in listCart" :key="value.id" :value="value" class="border-b"/>
+                        </div>
+                        <div class="mb-12 py-6" v-else>
+                            Chưa có sản phẩm vui lòng thêm vào giỏ hàng
                         </div>
                     </div>
-                    <div class="column is-12 is-4-widescreen">
+                    <div class="column is-6-widescreen-only"></div>
+                    <div class="column is-12 is-6-widescreen is-right">
                         <div class="has-background-info p-6 p-16-desktop">
                             <h3 class="title is-size-3 has-text-white mb-6">Thông Tin</h3>
                             <div class="mb-8 pb-5 is-flex is-justify-content-space-between is-align-items-center"
@@ -145,9 +47,18 @@
     </section>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import CartItem from '../components/CartItem.vue';
 export default {
-   
+    components: { CartItem },
+    computed:{
+        listCart() {
+            return this.$store.getters.getListCarts;
+        }, 
+        countItem() {
+            return this.$store.getters.getListCarts.length;
+        },
+    },
+    
 }
 </script>
 
