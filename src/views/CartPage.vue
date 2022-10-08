@@ -36,9 +36,9 @@
                             <div class="mb-8 pb-5 is-flex is-justify-content-space-between is-align-items-center"
                                 style="border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
                                 <span class="has-text-light">Tổng tiền</span>
-                                <span class="subtitle has-text-white has-text-weight-bold">$89.67</span>
+                                <span class="subtitle has-text-white has-text-weight-bold">{{formatPrice(getTotal)}} VNĐ</span>
                             </div>
-                            <a class="button is-primary is-fullwidth" href="#">Thanh  Toán</a>
+                            <a class="button is-primary is-fullwidth">Thanh  Toán</a>
                         </div>
                     </div>
                 </div>
@@ -57,8 +57,16 @@ export default {
         countItem() {
             return this.$store.getters.getListCarts.length;
         },
+        getTotal() {
+                return this.$store.getters.getListCarts.reduce((a, b) => a + (b.price * b.quantity), 0)
+        }
     },
-    
+    methods: {
+        formatPrice(value) {
+            let val = (value / 1).toFixed(0).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        }
+    },
 }
 </script>
 

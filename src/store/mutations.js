@@ -9,5 +9,21 @@ export default {
         }
         console.log(state.carts);
         localStorage.setItem('carts', JSON.stringify(state.carts))//Hoan thanh xong thi dua vao localStore tren may nguoi dung
+    },
+    minusItem(state, product) {
+        let item = state.carts.find(i => i.id === product.id)
+
+        if (item) {
+            if (item.quantity > 1) {
+                item.quantity--
+            } else {
+                state.carts = state.carts.filter(i => i.id !== product.id)
+            }
+        }
+
+        localStorage.setItem('carts', JSON.stringify(state.carts))
+    },
+    setProducts(state,products){
+        state.products = products
     }
 }

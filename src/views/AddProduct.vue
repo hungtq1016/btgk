@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <form @submit.prevent="submit">
+        <form>
             <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
@@ -23,11 +23,11 @@
             </div>
             <div>{{form.name}}</div>
         </form>
+        <button  @click="(event) => warn('Form cannot be submitted yet.', event)">Hello</button>
     </div>
 </template>
 
 <script >
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { APIURL } from "../constant";
 export default {
@@ -49,7 +49,11 @@ export default {
             await axios.post(`${APIURL}/products`, this.form);
 
         },
-    }
+        test(){
+            console.log('test');
+        }
+    },
+    mounted(){}
 }
 </script>
 

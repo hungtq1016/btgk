@@ -20,11 +20,10 @@
             </router-link>
             <router-link to="/about" class="navbar-item">About</router-link>
             <router-link to="/product" class="navbar-item">Product</router-link>
-            
+  
           </div>
-      
           <div class="navbar-end">
-            <input type="text" class="px-2 border rounded" placeholder="Tìm tại đây..."/>
+            <search></search>
             <div class="navbar-item has-dropdown is-hoverable">
               <router-link to="/cart" class="navbar-link">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -48,6 +47,7 @@
 
 <script>
 import MiniCart from './MiniCart.vue';
+import Search from './Search.vue';
     export default{
     computed: {
         countItem() {
@@ -57,7 +57,7 @@ import MiniCart from './MiniCart.vue';
             return this.$store.getters.getListCarts;
         }, 
     },
-    components: { MiniCart }
+    components: { MiniCart, Search }
 }
 </script>
 
