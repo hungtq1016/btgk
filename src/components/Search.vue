@@ -16,11 +16,12 @@ export default {
             search: ''
         };
     },
+    
     computed: {
         filteredData() {
             return this.products
                 .filter(
-                    ({ name }) => [name]
+                    ({ name }) => [name ]
                         .some(val => val.toLowerCase().includes(this.search))
                 );
         },

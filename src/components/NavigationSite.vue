@@ -19,8 +19,12 @@
               Trang chủ
             </router-link>
             <router-link to="/about" class="navbar-item">About</router-link>
-            <router-link to="/product" class="navbar-item">Product</router-link>
-  
+            <div class="navbar-item has-dropdown is-hoverable">
+              <router-link to="/products" class="navbar-link">Tất cả sản phẩm</router-link>
+              <div class="navbar-dropdown is-right" >
+                  <router-link to="/product" class="navbar-item">Thêm sản phẩm</router-link>
+              </div>
+            </div>
           </div>
           <div class="navbar-end">
             <search></search>

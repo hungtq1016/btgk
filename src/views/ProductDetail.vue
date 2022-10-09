@@ -5,17 +5,22 @@
             <div class="column is-hidden-desktop is-1-tablet is-hidden-mobile"></div>
 
             <div class="column is-5-desktop is-5-tablet is-12-mobile">
-                <img src="http://www.thebluediamondgallery.com/wooden-tile/images/product.jpg" alt="image"
-                    style="max-height: 500px">
+                <img :src="product.url" alt="image" class="mx-auto">
             </div>
 
             <div class="column is-7-desktop is-5-tablet is-12-mobile content-detail">
                 <dt style="font-size:1.7em; text-transform:uppercase">{{product.name}}</dt>
-                <dt style="font-size:1.2em; text-transform:uppercase">Category</dt>
+                <dt style="font-size:1.2em; text-transform:uppercase">{{product.category}}</dt>
                 <hr>
-                <div class="price">
+                <div class="price" v-if="product.discount">
                     <label for="price" class="font-bold">Giá: </label>
-                    <span class="text-red-600">{{formatPrice(product.price)}} VNĐ</span>
+                    <span class="text-red-600 text-xl mr-2">{{formatPrice(product.price*(1-(product.discount/100)))}} VNĐ</span>
+                    <span class="line-through text-sm">{{formatPrice(product.price)}} VNĐ</span>
+                    <br><br>
+                </div>
+                <div class="price" v-else>
+                    <label for="price" class="font-bold">Giá: </label>
+                    <span class="text-red-600 text-xl mr-2">{{formatPrice(product.price)}} VNĐ</span>
                     <br><br>
                 </div>
                 <p style="font-size:1.2em;">{{product.desc}}</p>
@@ -47,7 +52,7 @@
                     </div>
                 </div>
                 <button class="button is-full is-danger is-light">Yêu Thích</button>
-                <button class="button is-full is-primary ml-2" @click.prevent="addToCart(this.product)">Thêm</button>
+                <button class="button is-full is-primary ml-2" @click.prevent="addToCart(this.product)" v-if="product.qty>0">Thêm</button>
                 <div class="column is-hidden-desktop is-1-tablet is-hidden-mobile"></div>
             </div>
         </div>
