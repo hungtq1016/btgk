@@ -1,20 +1,14 @@
 <template>
-  <Navbar/>
-  <router-view :key="$route.path"/>
-  <FooterSite/>
+  <HeaderCom/>
+  <RouterView :key="$route.path"/>
+  <FooterCom/>
 </template>
 
-<script >
-import { RouterView } from 'vue-router';
-import Navbar from './components/NavigationSite.vue';
-import FooterSite from './components/FooterSite.vue';
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import HeaderCom from './components/inc/HeaderCom.vue';
+import FooterCom from './components/inc/FooterCom.vue';
 
-export default{
-  name : 'App',
-  components: { Navbar, FooterSite }
-}
 </script>
-
-<style lang="scss" scoped>
-
+<style scoped>
 </style>

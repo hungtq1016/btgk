@@ -23,7 +23,7 @@ export default {
 
         localStorage.setItem('carts', JSON.stringify(state.carts))
     },
-    setProducts(state,products){
+    setProducts: function (state,products) {
         state.products = products
     }
 }
