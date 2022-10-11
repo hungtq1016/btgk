@@ -163,11 +163,12 @@
 
 <script>
 import axios from 'axios';
-import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
-import { APIURL } from '../constant';
-import ListItem from '../components/product/ListItem.vue';
 import format from '../mixin/format';
 import { mapMutations } from 'vuex';
+import { APIURL } from '../constant';
+import ListItem from '../components/product/ListItem.vue';
+import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
+
 export default {
     components: { BreadcrumbCom, ListItem },
     data() {

@@ -28,6 +28,16 @@ const router = createRouter({
       name: 'product-detail',
       component: () => import('../views/ProductDetail.vue')
     },
+    {
+      path: '/category/:id',
+      name: 'category',
+      component: () => import('../views/ProductView.vue')
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: 'erroe',
+      component: () => import('../views/ErrorView.vue')
+    }
   ]
 })
 

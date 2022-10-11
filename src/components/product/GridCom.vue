@@ -1,11 +1,11 @@
 <template>
     <div class="col-lg-9 col-md-12">
-        <div class="row pb-3">
-            <div class="col-12 pb-1">
+        <div class="row">
+            <div class="col pb-1">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <form action="">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Tìm theo tên...">
+                            <input type="text" class="form-control" placeholder="Tìm theo tên..." v-model="search">
                             <div class="input-group-append">
                                 <span class="input-group-text bg-transparent text-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
@@ -31,9 +31,14 @@
                     </div>
                 </div>
             </div>
-
-            <ProductItem v-for="product in products" :key="product.id" :product="product"
-                class="col-lg-4 col-md-6 col-sm-12 pb-1" />
+        </div>
+        <div class="row pb-3" v-if="search">
+            <ProductItem v-for="product in searchList" :key="product.id" :product="product" class="col-lg-4 col-md-6 col-sm-12 pb-1"/>      
+        </div>
+        <div class="row pb-3" v-else>
+            <ProductItem v-for="product in filteredProduct" :key="product.id" :product="product" class="col-lg-4 col-md-6 col-sm-12 pb-1"/>      
+        </div>
+        <div class="row">
             <PaginateCom :totalPages="5" :perPage="9" :currentPage="currentPage" @pagechanged="onPageChange" />
         </div>
     </div>
@@ -43,9 +48,12 @@
 import ProductItem from './ProductItem.vue';
 import PaginateCom from './PaginateCom.vue';
 export default {
+    props: ['category'],
     data() {
         return {
+            list: [],
             currentPage: 1,
+            search: ''
         };
     },
     components: { ProductItem, PaginateCom },
@@ -53,12 +61,36 @@ export default {
         products() {
             return this.$store.state.products;
         },
+        filteredProduct() {
+            if (this.category) {
+                return this.list.filter((item) => {
+                    return item.category.match(this.category)
+                })
+            } else {
+                return this.list
+            }
+
+        },
+        searchList() {
+            return this.filteredProduct.filter(item => {
+                return item.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
     },
     methods: {
         onPageChange(page) {
             console.log(page)
             this.currentPage = page;
         }
+    },
+    filters: {
+        search() {
+            return this.filteredProduct.match(this.search)
+        }
+
+    },
+    created() {
+        this.list = this.products
     }
 }
 </script>

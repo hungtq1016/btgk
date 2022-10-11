@@ -6,11 +6,12 @@
                     <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Nhận Thông Tin Khuyến Mãi</span></h2>
                     <p>Liên hệ ngay để nhận thông tin ưu đãi cực hấp dẫn</p>
                 </div>
-                <form>
+                <form @submit.prevent="submit">
                     <div class="input-group">
-                        <input type="text" class="form-control border-white p-4" placeholder="Nhập email tại đây">
+                        <input type="email" class="form-control border-white p-4" placeholder="Nhập email tại đây" v-model="form.email">
                         <div class="input-group-append">
-                            <button class="btn btn-primary px-4">Đăng Ký</button>
+                            <!-- <button class="btn btn-primary px-4">Đăng Ký</button> -->
+                            <input type="submit" class="btn btn-primary px-4" value="Đăng Ký"/>
                         </div>
                     </div>
                 </form>
@@ -20,8 +21,22 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
+import axios from "axios";
+import {APIURL} from '../../constant';
     export default {
-        
+        data(){
+            return{
+                form:{email:""}
+            }
+        },
+        methods: {
+            async submit(){
+                await axios.post(`${APIURL}/emails`, this.form);
+                swal("Thành Công", "Cảm ơn bạn đã đăng ký", "success");
+                this.form.email = null;
+            }
+        },
     }
 </script>
 
