@@ -19,9 +19,12 @@
     {
       "email": "a@gg.c",
       "id": 5
+    },
+    {
+      "email": "avc@gma.v",
+      "id": 6
     }
   ],
- 
   "users": [
     {
       "email": "admin@gmail.com",
@@ -42,32 +45,32 @@
     {
       "id": 1,
       "name": "Apple",
-      "url":"https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png"
     },
     {
       "id": 2,
       "name": "HP",
-      "url":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/1024px-HP_logo_2012.svg.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/1024px-HP_logo_2012.svg.png"
     },
     {
       "id": 3,
       "name": "Dell",
-      "url":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/1024px-Dell_Logo.svg.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/1024px-Dell_Logo.svg.png"
     },
     {
       "id": 4,
       "name": "Asus",
-      "url":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ASUS_Corporate_Logo.svg/1920px-ASUS_Corporate_Logo.svg.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ASUS_Corporate_Logo.svg/1920px-ASUS_Corporate_Logo.svg.png"
     },
     {
       "id": 5,
       "name": "Lenovo",
-      "url":"https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg"
     },
     {
       "id": 6,
       "name": "Acer",
-      "url":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/1920px-Acer_2011.svg.png"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/1920px-Acer_2011.svg.png"
     }
   ],
   "products": [

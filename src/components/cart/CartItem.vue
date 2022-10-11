@@ -1,7 +1,7 @@
 <template>
     <tr>
         <td class="d-flex align-items-center">
-            <img src="http://127.0.0.1:5173/src/assets/img/product-2.jpg" style="width:100px">
+            <img :src="cart.img" style="width:100px">
             <div> {{cart.name}}</div>
         </td>
         <td class="align-middle">{{formatPrice(cart.price)}} VNĐ</td>
