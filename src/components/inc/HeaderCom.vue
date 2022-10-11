@@ -49,11 +49,12 @@
                             </div>
 
                             <div class="navbar-nav ml-auto py-0" v-if="userCookie.length != 0">
-                                <b>Xin chào: </b>{{userCookie.username}}
+                                <div class="nav-item nav-link"><b>Xin chào: </b>{{userCookie.username}}</div>
+                                <a @click="logout" class="nav-item nav-link">Đăng Xuất</a>
                             </div>
                             <div class="navbar-nav ml-auto py-0" v-else>
-                                <router-link to="/login" class="nav-item nav-link">Login</router-link>
-                                <router-link to="/register" class="nav-item nav-link">Register</router-link>
+                                <router-link to="/login" class="nav-item nav-link">Đăng Nhập</router-link>
+                                <router-link to="/register" class="nav-item nav-link">Đăng Ký</router-link>
                             </div>
                         </div>
                     </nav>
@@ -75,15 +76,24 @@ export default {
         countItem() {
             return this.$store.getters.getListCarts.length;
         },
+        test() {
+            return this.$store.state.user
+        }
     },
     mounted() {
-        this.$store.dispatch("getProducts");
+        this.$store.dispatch("getProducts","test");
     },
     created() {
         if (this.$cookies.get('user')) {
             this.userCookie = this.$cookies.get('user')
         }
-        
+
+    },
+    methods: {
+        logout() {
+            this.$cookies.remove("user");
+            this.$router.push('login')
+        }
     },
     components: { SearchCom }
 }

@@ -3,7 +3,10 @@ import { APIURL } from "../constant";
 
 export default{
     async getProducts({commit}){
-        await axios.get(`http://localhost:3000/products`)
+        await axios.get(`${APIURL}/products`)
         .then((response) => {commit('setProducts',response.data)})
     },
+    test({commit}){
+        commit('setCookie')
+    }
 }

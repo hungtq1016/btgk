@@ -43,7 +43,7 @@ import swal from 'sweetalert';
     },
     methods: {
         async submit() {
-            const login = await axios.post(`${APIURL}/register`, this.form).catch(function (error) {
+            const register = await axios.post(`${APIURL}/register`, this.form).catch(function (error) {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
@@ -58,7 +58,9 @@ import swal from 'sweetalert';
                     swal("Thất Bại", error.response.data, "error");
                 }
             });
-            if (login) {
+            if (register) {
+                var cookie = JSON.stringify(register.data.user);
+                this.$cookies.set("user", cookie);
                 swal("Thành Công", "Đăng Ký Thành Công", "success");
                 this.$router.push('/');
             }

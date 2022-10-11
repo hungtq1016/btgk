@@ -33,6 +33,7 @@ export default {
             form: { email: "", password: "" },
         }
     },
+    
     methods: {
         async submit() {
             const login = await axios.post(`${APIURL}/login`, this.form).catch(function (error) {
@@ -51,9 +52,9 @@ export default {
                 }
             });
             if (login) {
-                console.log(login.data.user);
                 var cookie = JSON.stringify(login.data.user);
                 this.$cookies.set("user", cookie);
+                
                 swal("Thành Công", "Đăng Nhập Thành Công", "success");
                 this.$router.push('/');
             }

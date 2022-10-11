@@ -4,4 +4,5 @@ export default {
     return (item) ? item.quantity : null;
   },
   getListCarts: state => state.carts,
+  
 }

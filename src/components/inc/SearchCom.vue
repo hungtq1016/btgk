@@ -17,9 +17,8 @@
 
         </form>
         <div class="position-absolute search-result w-100">
-            <div class="col bg-white border mx-auto">
-                <!-- <search-item v-for="item in 5" :key="item.id" :product="item"/> -->
-                <SearchItem v-for="item in searchList" :key='item.id'/>
+            <div class=" bg-white border" v-if="search.length>0">
+                <SearchItem v-for="item in searchList.slice(0,8)" :key='item.id' :product="item"/>
             </div>
         </div>
     </div>
@@ -28,21 +27,24 @@
 <script>
 import SearchItem from './SearchItem.vue';
 export default {
+    components: { SearchItem },
     data(){
         return{
-            search:'',
-            searchList:[]
+            search:''
         }
     },
-    mutations:{
-        products(){
+    computed: {
+        products() {
             return this.$store.state.products;
+        },
+        searchList() {
+            return this.products.filter(item => {
+                return item.name.toLowerCase().includes(this.search.toLowerCase())
+            })
         }
     },
-    // created(){
-    //     return this.searchList = this.products.slice(0,8)
-    // },
-    components: { SearchItem }
+    
+   
 }
 </script>
 
