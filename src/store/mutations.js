@@ -26,13 +26,4 @@ export default {
     setProducts: function (state,products) {
         state.products = products
     },
-    setCookie(state){
-        if(this.$cookie.get('user')){
-            state.user = user;
-        }else{
-            state.user =[]
-        }
-            
-    
-    }
 }

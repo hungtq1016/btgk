@@ -81,7 +81,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch("getProducts","test");
+        this.$store.dispatch("getProducts");
     },
     created() {
         if (this.$cookies.get('user')) {

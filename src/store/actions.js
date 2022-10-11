@@ -6,7 +6,4 @@ export default{
         await axios.get(`${APIURL}/products`)
         .then((response) => {commit('setProducts',response.data)})
     },
-    test({commit}){
-        commit('setCookie')
-    }
 }
