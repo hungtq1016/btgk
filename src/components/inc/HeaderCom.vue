@@ -47,7 +47,6 @@
         </div>
         <div class="container-fluid mb-5">
             <div class="row border-top px-xl-5">
-
                 <div class="col">
                     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                         <router-link to="/" class="text-decoration-none d-block d-lg-none">
@@ -65,12 +64,11 @@
                                 <router-link to="/about" class="nav-item nav-link">Thông Tin </router-link>
                             </div>
                             <div class="navbar-nav ml-auto py-0">
-                                <a href="" class="nav-item nav-link">Login</a>
+                                <router-link to="/login" class="nav-item nav-link">Login</router-link>
                                 <a href="" class="nav-item nav-link">Register</a>
                             </div>
                         </div>
                     </nav>
-
                 </div>
             </div>
         </div>

@@ -21,30 +21,30 @@
       "id": 5
     }
   ],
-  "categories":[
+  "categories": [
     {
-      "id":1,
-      "title":"Mercedes"
+      "id": 1,
+      "title": "Mercedes"
     },
     {
-      "id":2,
-      "title":"Mazda"
+      "id": 2,
+      "title": "Mazda"
     },
     {
-      "id":3,
-      "title":"Kia"
+      "id": 3,
+      "title": "Kia"
     },
     {
-      "id":4,
-      "title":"Volkswagen"
+      "id": 4,
+      "title": "Volkswagen"
     },
     {
-      "id":5,
-      "title":"Toyota"
+      "id": 5,
+      "title": "Toyota"
     },
     {
-      "id":6,
-      "title":"Ford"
+      "id": 6,
+      "title": "Ford"
     }
   ],
   "products": [
@@ -1247,6 +1247,15 @@
       "price": 802325,
       "qty": 55,
       "date": "28/7/2022"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$Os9hTlmhvMt1uOC3UFONBugspBW4msdJwqf44bg7UCi8gECMTVh3u",
+      "name": "admin",
+      "phone": "0865264325",
+      "id": 1
     }
   ]
 }

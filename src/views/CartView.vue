@@ -1,6 +1,6 @@
 <template>
     <BreadcrumbCom target="Giỏ Hàng"/>
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5" v-if="countItem>0">
         <div class="row px-xl-5">
             <div class="col-12 table-responsive mb-5">
                 <table class="table table-bordered text-center mb-0">
@@ -21,6 +21,9 @@
         </div>
         <TotalPrice :total="getTotal"/>
     </div>
+    <div class="container-fluid pt-5">
+        <h1 class="text-center">Chưa có hàng trong giỏ</h1>
+    </div>
 </template>
 
 <script>
@@ -35,7 +38,10 @@ import BreadcrumbCom from "../components/inc/BreadcrumbCom.vue";
         }, 
         getTotal() {
                 return this.$store.getters.getListCarts.reduce((a, b) => a + (b.price * b.quantity), 0)
-        }
+        },
+        countItem() {
+            return this.$store.getters.getListCarts.length;
+        },
     },
 }
 </script>
