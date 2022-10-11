@@ -8,23 +8,7 @@
                                 class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                     </router-link>
                 </div>
-                <div class="col-lg-6 col-6 text-left">
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm...">
-                            <div class="input-group-append">
-                                <span class="input-group-text bg-transparent text-primary">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-                                        stroke="currentColor" width="24" height="24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                            fill="white" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <SearchCom />
                 <div class="col-lg-3 col-6 text-right">
                     <a href="" class="btn border">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -63,9 +47,13 @@
                                 <router-link to="/products" class="nav-item nav-link">Sản Phẩm</router-link>
                                 <router-link to="/about" class="nav-item nav-link">Thông Tin </router-link>
                             </div>
-                            <div class="navbar-nav ml-auto py-0">
+
+                            <div class="navbar-nav ml-auto py-0" v-if="userCookie.length != 0">
+                                <b>Xin chào: </b>{{userCookie.username}}
+                            </div>
+                            <div class="navbar-nav ml-auto py-0" v-else>
                                 <router-link to="/login" class="nav-item nav-link">Login</router-link>
-                                <a href="" class="nav-item nav-link">Register</a>
+                                <router-link to="/register" class="nav-item nav-link">Register</router-link>
                             </div>
                         </div>
                     </nav>
@@ -76,15 +64,28 @@
 </template>
 
 <script>
+import SearchCom from './SearchCom.vue';
 export default {
+    data() {
+        return {
+            userCookie: []
+        }
+    },
     computed: {
         countItem() {
             return this.$store.getters.getListCarts.length;
         },
     },
     mounted() {
-        this.$store.dispatch('getProducts');
+        this.$store.dispatch("getProducts");
     },
+    created() {
+        if (this.$cookies.get('user')) {
+            this.userCookie = this.$cookies.get('user')
+        }
+        
+    },
+    components: { SearchCom }
 }
 </script>
 

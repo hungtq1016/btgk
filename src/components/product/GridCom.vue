@@ -83,12 +83,6 @@ export default {
             this.currentPage = page;
         }
     },
-    filters: {
-        search() {
-            return this.filteredProduct.match(this.search)
-        }
-
-    },
     created() {
         this.list = this.products
     }

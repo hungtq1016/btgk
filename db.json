@@ -1253,9 +1253,16 @@
     {
       "email": "admin@gmail.com",
       "password": "$2a$10$Os9hTlmhvMt1uOC3UFONBugspBW4msdJwqf44bg7UCi8gECMTVh3u",
-      "name": "admin",
+      "username": "admin",
       "phone": "0865264325",
       "id": 1
+    },
+    {
+      "email": "hung@mail.com",
+      "password": "$2a$10$AwPyJ7YKn.tFQJ3UtRjn5u9BTW9oroGBKDSmlSovslTIBW5lJowO2",
+      "username": "hung",
+      "repassword": "123456",
+      "id": 2
     }
   ]
 }

@@ -1,0 +1,51 @@
+<template>
+    <div class="col-lg-6 col-6 text-left position-relative">
+        <form action="">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." v-model="search">
+                <div class="input-group-append">
+                    <span class="input-group-text bg-transparent text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                fill="white" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+        </form>
+        <div class="position-absolute search-result w-100">
+            <div class="col bg-white border mx-auto">
+                <!-- <search-item v-for="item in 5" :key="item.id" :product="item"/> -->
+                <SearchItem v-for="item in searchList" :key='item.id'/>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import SearchItem from './SearchItem.vue';
+export default {
+    data(){
+        return{
+            search:'',
+            searchList:[]
+        }
+    },
+    mutations:{
+        products(){
+            return this.$store.state.products;
+        }
+    },
+    // created(){
+    //     return this.searchList = this.products.slice(0,8)
+    // },
+    components: { SearchItem }
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>

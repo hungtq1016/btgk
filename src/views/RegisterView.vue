@@ -4,19 +4,27 @@
             <div class="col-6 p-4" style="border: 1px solid black">
                 <form @submit.prevent="submit">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             v-model="form.email" style="border-bottom: 2px solid black;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputText1" class="form-label">Tên Đăng Nhập</label>
+                        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp"
+                            v-model="form.username" style="border-bottom: 2px solid black;">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password"
                             style="border-bottom: 2px solid black;">
                     </div>
-
-                    <input type="submit" class="btn btn-primary" value="Xác Nhận"
-                        v-if="form.password !='' && form.username !=''" />
-                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-else disabled />
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Re-Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" v-model="form.repassword"
+                            style="border-bottom: 2px solid black;">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-if="form.password == form.repassword && form.email != '' && form.username != ''"/>
+                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-else disabled/>
                 </form>
             </div>
         </div>
@@ -27,15 +35,15 @@
 import axios from 'axios';
 import { APIURL } from '../constant';
 import swal from 'sweetalert';
-export default {
-    data() {
+    export default {
+        data() {
         return {
-            form: { email: "", password: "" },
+            form: { email: "",username:"", password: "" }
         }
     },
     methods: {
         async submit() {
-            const login = await axios.post(`${APIURL}/login`, this.form).catch(function (error) {
+            const login = await axios.post(`${APIURL}/register`, this.form).catch(function (error) {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
@@ -51,15 +59,12 @@ export default {
                 }
             });
             if (login) {
-                console.log(login.data.user);
-                var cookie = JSON.stringify(login.data.user);
-                this.$cookies.set("user", cookie);
-                swal("Thành Công", "Đăng Nhập Thành Công", "success");
+                swal("Thành Công", "Đăng Ký Thành Công", "success");
                 this.$router.push('/');
             }
-        },
+        },  
     },
-}
+    }
 </script>
 
 <style lang="scss" scoped>

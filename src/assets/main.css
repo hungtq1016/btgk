@@ -9577,3 +9577,9 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+.search-result{
+  top: 40px;
+  left: 0;
+  padding: 0 15px;
+  z-index: 50;
+}
