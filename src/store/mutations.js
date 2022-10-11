@@ -1,5 +1,5 @@
 export default {
-    addToCart(state, product) {
+    addToCart: function (state, product) {
         //Tim xem da ton tai san pham trong gio hang hay chua
         let item = state.carts.find(i => i.id === product.id)
         if (item) {//Ton tai thi them vao
@@ -10,7 +10,7 @@ export default {
         console.log(state.carts);
         localStorage.setItem('carts', JSON.stringify(state.carts))//Hoan thanh xong thi dua vao localStore tren may nguoi dung
     },
-    minusItem(state, product) {
+    minusItem: function (state, product) {
         let item = state.carts.find(i => i.id === product.id)
 
         if (item) {
@@ -26,4 +26,9 @@ export default {
     setProducts: function (state,products) {
         state.products = products
     },
+    removeFromCart: function (state,product) {
+        let item = state.carts.indexOf(product)
+        state.carts.splice(item,1)
+        localStorage.setItem('carts', JSON.stringify(state.carts))
+    }
 }

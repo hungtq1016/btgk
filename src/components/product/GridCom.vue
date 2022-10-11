@@ -71,7 +71,7 @@ import { APIURL } from '../../constant';
 import ProductItem from './ProductItem.vue';
 import PaginateCom from './PaginateCom.vue';
 export default {
-    props: ['category'],
+    props: ['brand'],
     data() {
         return {
             productsBy: [],
@@ -84,20 +84,20 @@ export default {
             return this.$store.state.products;
         },
         totalPages(){
-            return parseInt(this.products.length/9)+1;
+            return parseInt(this.products.length/6)+1;
         }
     },
     async mounted() {
-        if (this.category) {
-            await axios.get(`${APIURL}/products?_page=${this.req}&_limit=9&category=${this.category}`).then((response) => this.productsBy = response.data);
+        if (this.brand) {
+            await axios.get(`${APIURL}/brands/${this.brand}?_embed=products&_limit=6`).then((response) => this.productsBy = response.data.products);
         } else {
-            await axios.get(`${APIURL}/products?_page=${this.req}&_limit=9`).then((response) => this.productsBy = response.data);
+            await axios.get(`${APIURL}/products?_page=${this.req}&_limit=6 `).then((response) => this.productsBy = response.data);
         }
 
     },
     methods:{
         async onClickBtn(value){
-            await axios.get(`${APIURL}/products?_page=${value}&_limit=9`).then((response) => this.productsBy = response.data);
+            await axios.get(`${APIURL}/products?_page=${value}&_limit=6`).then((response) => this.productsBy = response.data);
         }
     }
 }

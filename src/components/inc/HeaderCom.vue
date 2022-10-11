@@ -93,7 +93,7 @@ export default {
         logout() {
             this.$cookies.remove("user");
             this.$router.push('login')
-        }
+        },
     },
     components: { SearchCom }
 }

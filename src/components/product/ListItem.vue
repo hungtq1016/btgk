@@ -4,13 +4,16 @@
             <h2 class="section-title px-5"><span class="px-2">{{title}}</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
-            <ProductItem v-for="product in sortedProducts.slice(0,this.max)" :key="product.id" :product="product" class="col-lg-3 col-md-6 col-sm-12 pb-1"/>
+            <ProductItem v-for="product in array" :key="product.id" :product="product" class="col-lg-3 col-md-6 col-sm-12 pb-1"/>
         </div>
     </div>
 </template>
 
 <script>
 import ProductItem from './ProductItem.vue';
+import {APIURL} from '../../constant';
+import axios from 'axios';
+
 export default {
     props: {
         isGreater: Boolean,
@@ -19,17 +22,12 @@ export default {
         max: Number
     },
     data() {
-        return {};
+        return {array:[]};
     },
-    computed: {
-        products() {
-            return this.$store.state.products;
-        },
-        sortedProducts() {
-            return this.isGreater == true 
-            ? this.products.sort((a, b) => a[this.view] > b[this.view] ? -1 : 1)
-            : this.products.sort((a, b) => a[this.view] < b[this.view] ? -1 : 1);
-        },
+    async mounted(){
+        (this.isGreater == true ) ?
+        await axios.get(`${APIURL}/products?_sort=${this.view}&_order=asc&_limit=${this.max}`).then((response) => this.array = response.data) :
+        await axios.get(`${APIURL}/products?_sort=${this.view}&_order=desc&_limit=${this.max}`).then((response) => this.array = response.data)
     },
     components: { ProductItem }
 }
