@@ -1,19 +1,20 @@
 # TranQuocHung_501210025
 
-This template should help get you started developing with Vue 3 in Vite.
+## Các công nghệ sử dụng
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+VueJS , Vuex , Json-server
 
 ## Cài đặt sau khi tải về
 ```sh
 npm install
 ```
+### Cài đặt json-server-auth
+Cài đặt tại global
+
+```sh
+npm install -g json-server-auth
+```
+
 ### Cài đặt fake back-end
 
 ```sh
