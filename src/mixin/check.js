@@ -1,9 +1,6 @@
 export default{
     methods: {
-        formatPrice(value) {
-            let val = (value / 1).toFixed(0).replace('.', ',')
-            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        },confirm(){
+        confirm() {
             swal({
                 title: "Yêu Cầu",
                 text: "Bạn phải đăng nhập để thực hiện chức năng",
@@ -13,6 +10,6 @@ export default{
             }).then((willLogin) => {
                 (willLogin) ? this.$router.push('/login') :''
             });
-        }
+        },
     },
 }

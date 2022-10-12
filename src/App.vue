@@ -1,6 +1,8 @@
 <template>
   <HeaderCom/>
-  <RouterView :key="$route.path"/>
+  <main>
+    <RouterView :key="$route.path"/>
+  </main>
   <FooterCom/>
 </template>
 

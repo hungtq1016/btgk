@@ -1,27 +1,28 @@
 <template>
-    <div class="container">
+    <div class="bg-light">
+        <div class="container" style="padding:100px 0">
         <div class="row justify-content-center">
-            <div class="col-6 p-4" style="border: 1px solid black">
+            <div class="col-6 p-4 border bg-white">
                 <form @submit.prevent="submit">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            v-model="form.email" style="border-bottom: 2px solid black;">
+                            v-model="form.email" >
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputText1" class="form-label">Tên Đăng Nhập</label>
                         <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp"
-                            v-model="form.username" style="border-bottom: 2px solid black;">
+                            v-model="form.username" >
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password"
-                            style="border-bottom: 2px solid black;">
+                            >
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword2" class="form-label">Re-Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword2" v-model="form.repassword"
-                            style="border-bottom: 2px solid black;">
+                            >
                     </div>
                     <input type="submit" class="btn btn-primary" value="Xác Nhận"
                         v-if="form.password == form.repassword && form.email != '' && form.username != ''" />
@@ -29,6 +30,7 @@
                 </form>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

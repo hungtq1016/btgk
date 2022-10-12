@@ -1,7 +1,7 @@
 <template>
     <BreadcrumbCom :target="this.name" v-if="this.$route.params.id" />
     <BreadcrumbCom target="Tất Cả Sản Phẩm" v-else />
-    <div class="container-fluid pt-5">
+    <div class="container-fluid container-xl pt-5">
         <div class="row px-xl-5">
             <!-- Shop Sidebar Start -->
             <FilterCom />

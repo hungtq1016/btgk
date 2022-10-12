@@ -1,23 +1,25 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6 p-4" style="border: 1px solid black">
-                <form @submit.prevent="submit">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            v-model="form.email" style="border-bottom: 2px solid black;">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password"
-                            style="border-bottom: 2px solid black;">
-                    </div>
+    <div class="bg-light">
+        <div class="container " style="padding: 150px 0;">
+            <div class="row justify-content-center">
+                <div class="col-6 p-4 border bg-white">
+                    <form @submit.prevent="submit">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" v-model="form.email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                v-model="form.password">
+                        </div>
 
-                    <input type="submit" class="btn btn-primary" value="Xác Nhận"
-                        v-if="form.password !='' && form.username !=''" />
-                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-else disabled />
-                </form>
+                        <input type="submit" class="btn btn-primary" value="Xác Nhận"
+                            v-if="form.password !='' && form.username !=''" />
+                        <input type="submit" class="btn btn-primary" value="Xác Nhận" v-else disabled />
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -27,14 +29,14 @@
 import axios from 'axios';
 import { APIURL } from '../constant';
 import swal from 'sweetalert';
-import { mapMutations } from 'vuex';
+import { mapMutations,mapActions } from 'vuex';
 export default {
     data() {
         return {
             form: { email: "", password: "" },
         }
     },
-    
+
     methods: {
         async submit() {
             const login = await axios.post(`${APIURL}/login`, this.form).catch(function (error) {
@@ -55,10 +57,13 @@ export default {
             if (login) {
                 this.setUser(login.data.user)
                 swal("Thành Công", "Đăng Nhập Thành Công", "success");
+                this.getFollows(login.data.user.id)
+
                 this.$router.push('/');
             }
         },
-        ...mapMutations(['setUser'])
+        ...mapMutations(['setUser']),
+        ...mapActions(['getFollows'])
     },
 
 }

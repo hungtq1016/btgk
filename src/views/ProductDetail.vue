@@ -1,7 +1,7 @@
 <template>
     <BreadcrumbCom :target="this.product.name" :isChild="true" />
-    <div class="container-fluid py-5">
-        <div class="row px-xl-5">
+    <div class="container-fluid container-xl">
+        <div class="row pt-xl-5 ">
             <div class="col-lg-4">
                 <img class="w-100 h-100" :src="product.img" alt="Image">
             </div>
@@ -18,8 +18,8 @@
                 <h3 class="font-weight-semi-bold mb-4" v-else>{{formatPrice(product.price)}} VNĐ</h3>
                 <p class="mb-4">{{product.desc}}.</p>
                 <div class="d-flex mb-3">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                    <form>
+                    <p class="text-dark font-weight-medium mb-0 me-3">Sizes:</p>
+                    <form class="d-flex gap-2">
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="size-1" name="size">
                             <label class="custom-control-label" for="size-1">XS</label>
@@ -43,8 +43,8 @@
                     </form>
                 </div>
                 <div class="d-flex mb-4">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-                    <form>
+                    <p class="text-dark font-weight-medium mb-0 me-3">Colors:</p>
+                    <form class="d-flex gap-2">
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" class="custom-control-input" id="color-1" name="color">
                             <label class="custom-control-label" for="color-1">Black</label>
@@ -67,18 +67,38 @@
                         </div>
                     </form>
                 </div>
-                <div class="d-flex align-items-center mb-4 pt-2">
-                    <button  class="btn btn-danger mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15" fill="#fff"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
-                        <span class="ml-2">Thêm vào yêu thích</span>
-                    </button>
-                    <button class="btn btn-primary px-3" @click="addToCart(this.product)">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" width="20" height="15">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                <div class="d-flex align-items-center mb-4 pt-2" v-if="getUser.length == 0">
+                    <button class="btn btn-danger" @click="confirm()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
+                            <path
+                                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                         </svg>
-                        Thêm Vào Giỏ Hàng
+                    </button>
+                    <button class="btn btn-outline-secondary ms-2" @click="addToCart(this.product)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" fill="currentColor">
+                            <path
+                                d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
+                        </svg>
+                        <span class="ms-1">Thêm Vào Giỏ Hàng</span>
+                    </button>
+                </div>
+                <div class="d-flex align-items-center mb-4 pt-2" v-else>
+                    <button class="btn btn-danger" @click="unFollowProduct(product.id)" v-if="isFollow">
+                        xoa
+                    </button>
+                    <button class="btn btn-danger" @click="followProduct(product.id)" v-else>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" fill="currentColor">
+                            <path
+                                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                        </svg>
+                    </button>
+                    <button class="btn btn-outline-secondary ms-2" @click="addToCart(this.product)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="14" fill="currentColor">
+                            <path
+                                d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />
+                        </svg>
+                        <span class="ms-1">Thêm Vào Giỏ Hàng</span>
+        
                     </button>
                 </div>
                 <div class="d-flex pt-2">
@@ -123,22 +143,41 @@
 <script>
 import axios from 'axios';
 import format from '../mixin/format';
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 import { APIURL } from '../constant';
 import ListItem from '../components/product/ListItem.vue';
 import BreadcrumbCom from '../components/inc/BreadcrumbCom.vue';
+import swal from 'sweetalert';
 
 export default {
     components: { BreadcrumbCom, ListItem },
     data() {
-        return {product: {}}
+        return { product: {}}
+    },
+    computed: {
+        ...mapGetters(['getUser','getFollows']),
+        isFollow() {
+            for (let i = 0; i < this.getFollows.length; i++) {
+                if (this.product.id ===  this.getFollows[i].productId) return i;
+            }
+            return false;
+        }
     },
     async mounted() {
         await axios.get(`${APIURL}/products/${this.$route.params.id}`).then((response) => this.product = response.data);
     },
     mixins: [format],
     methods: {
-        ...mapMutations(['addToCart'])
+        ...mapMutations(['addToCart']),
+        async followProduct(id) {
+                await axios.post(`${APIURL}/follows/`, { productId: id, userId: this.getUser.id });
+                swal('Thành Công', 'Đã thêm vào yêu thích', 'success')
+            
+        },
+        async unFollowProduct(id) {
+            await axios.delete(`${APIURL}/follows/${this.isFollow}`);
+            swal('Ta', 'Đã xoa', 'error')
+        },
     }
 }
 </script>

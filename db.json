@@ -31,6 +31,10 @@
     {
       "email": "sad@fadf.c",
       "id": 8
+    },
+    {
+      "email": "",
+      "id": 9
     }
   ],
   "users": [
@@ -308,6 +312,23 @@
       "price": "14990000",
       "discount": 50,
       "img": "https://cdn2.cellphones.com.vn/358x/media/catalog/product/7/1/71qodgwqq7s._ac_sx679_.jpg"
+    }
+  ],
+  "follows": [
+    {
+      "productId": 19,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "productId": 19,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "productId": 13,
+      "userId": 1,
+      "id": 5
     }
   ]
 }

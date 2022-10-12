@@ -7,7 +7,7 @@ export default {
         } else {//Chua thi tao moi
             state.carts.push({ ...product, quantity: 1 });
         }
-        console.log(state.carts);
+        
         localStorage.setItem('carts', JSON.stringify(state.carts))//Hoan thanh xong thi dua vao localStore tren may nguoi dung
     },
     minusItem: function (state, product) {
@@ -25,6 +25,9 @@ export default {
     },
     setProducts: function (state,products) {
         state.products = products
+    },
+    setFollows: function (state,follows) {
+        state.follows = follows
     },
     removeFromCart: function (state,product) {
         let item = state.carts.indexOf(product)

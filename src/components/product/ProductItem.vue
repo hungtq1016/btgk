@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div class="card product-item border-0 mb-4">
+        <div class="card product-item border mb-4">
             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                 <img class="img-fluid w-100" :src="product.img" alt="">
             </div>
             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                 <h6 class="text-truncate mb-3">{{product.name}}</h6>
                 <div class="d-flex justify-content-center" v-if="product.discount">
-                    <h6>{{formatPrice(product.price*(1-product.discount/100))}} VNĐ</h6>
-                    <h6 class="text-muted ml-2"><del>{{formatPrice(product.price)}} VNĐ</del></h6>
+                    <h5>{{formatPrice(product.price*(1-product.discount/100))}} VNĐ</h5>
+                    <h6 class="text-muted ml-2 "><del>{{formatPrice(product.price)}} VNĐ</del></h6>
                 </div>
                 <div class="d-flex justify-content-center" v-else>
                     <h6>{{formatPrice(product.price)}} VNĐ</h6>
