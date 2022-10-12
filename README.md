@@ -10,19 +10,23 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
+## Cài đặt sau khi tải về
 ```sh
 npm install
 ```
+### Cài đặt fake back-end
 
-### Compile and Hot-Reload for Development
+```sh
+npm run db
+```
+
+### Cài đặt xong bắt đầu chạy dự án
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Chạy thử dự án
 
 ```sh
 npm run build

@@ -24,7 +24,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                         </svg>
-                        <span class="badge">{{countItem}}</span>
+                        <span class="badge">{{getListCarts.length}}</span>
                     </router-link>
                 </div>
             </div>
@@ -48,8 +48,8 @@
                                 <router-link to="/about" class="nav-item nav-link">Thông Tin </router-link>
                             </div>
 
-                            <div class="navbar-nav ml-auto py-0" v-if="userCookie.length != 0">
-                                <div class="nav-item nav-link"><b>Xin chào: </b>{{userCookie.username}}</div>
+                            <div class="navbar-nav ml-auto py-0" v-if="getUser.length != 0">
+                                <div class="nav-item nav-link"><b>Xin chào: </b>{{getUser.username}}</div>
                                 <a @click="logout" class="nav-item nav-link">Đăng Xuất</a>
                             </div>
                             <div class="navbar-nav ml-auto py-0" v-else>
@@ -65,40 +65,25 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
+import { mapGetters,mapActions,mapMutations } from 'vuex';
 import SearchCom from './SearchCom.vue';
 export default {
-    data() {
-        return {
-            userCookie: []
-        }
-    },
     computed: {
-        countItem() {
-            return this.$store.getters.getListCarts.length;
-        },
-        test() {
-            return this.$store.state.user
-        }
-    },
-    mounted() {
-        this.$store.dispatch("getProducts");
-    },
-    created() {
-        if (this.$cookies.get('user')) {
-            this.userCookie = this.$cookies.get('user')
-        }
-
+        ...mapGetters(['getUser','getListCarts']),
     },
     methods: {
+        ...mapActions(['getProducts']),
+        ...mapMutations(['setUser']),
         logout() {
-            this.$cookies.remove("user");
+            this.setUser([])
             this.$router.push('login')
-        },
+            swal("Thành Công","Đăng xuất thành công","success")
+        }, 
+    },
+    mounted(){
+        this.$store.dispatch('getProducts')
     },
     components: { SearchCom }
 }
 </script>
-
-<style lang="css" scoped>
-
-</style>

@@ -8,7 +8,7 @@
                 </div>
                 <form @submit.prevent="submit">
                     <div class="input-group">
-                        <input type="email" class="form-control border-white p-4" placeholder="Nhập email tại đây" v-model="form.email">
+                        <input type="email" class="form-control border-white p-4" placeholder="Nhập email tại đây" v-model="form.email" required>
                         <div class="input-group-append">
                             <!-- <button class="btn btn-primary px-4">Đăng Ký</button> -->
                             <input type="submit" class="btn btn-primary px-4" value="Đăng Ký"/>
@@ -31,7 +31,7 @@ import {APIURL} from '../../constant';
             }
         },
         methods: {
-            async submit(){
+            async submit() {
                 await axios.post(`${APIURL}/emails`, this.form);
                 swal("Thành Công", "Cảm ơn bạn đã đăng ký", "success");
                 this.form.email = null;

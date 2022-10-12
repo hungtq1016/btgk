@@ -30,5 +30,8 @@ export default {
         let item = state.carts.indexOf(product)
         state.carts.splice(item,1)
         localStorage.setItem('carts', JSON.stringify(state.carts))
+    },
+    setUser : function(state,user){
+        state.user = user
     }
 }

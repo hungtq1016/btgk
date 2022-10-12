@@ -23,8 +23,9 @@
                         <input type="password" class="form-control" id="exampleInputPassword2" v-model="form.repassword"
                             style="border-bottom: 2px solid black;">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-if="form.password == form.repassword && form.email != '' && form.username != ''"/>
-                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-else disabled/>
+                    <input type="submit" class="btn btn-primary" value="Xác Nhận"
+                        v-if="form.password == form.repassword && form.email != '' && form.username != ''" />
+                    <input type="submit" class="btn btn-primary" value="Xác Nhận" v-else disabled />
                 </form>
             </div>
         </div>
@@ -35,11 +36,11 @@
 import axios from 'axios';
 import { APIURL } from '../constant';
 import swal from 'sweetalert';
-    export default {
-        data() {
-        return {
-            form: { email: "",username:"", password: "" }
-        }
+import { mapMutations } from 'vuex';
+
+export default {
+    data() {
+        return { form: { email: "", username: "", password: "" } }
     },
     methods: {
         async submit() {
@@ -59,14 +60,14 @@ import swal from 'sweetalert';
                 }
             });
             if (register) {
-                var cookie = JSON.stringify(register.data.user);
-                this.$cookies.set("user", cookie);
-                swal("Thành Công", "Đăng Ký Thành Công", "success");
+                this.setUser(register.data.user)
+                swal("Thành Công", "Đăng Ký Thành Công", "success");
                 this.$router.push('/');
             }
-        },  
+        },
+        ...mapMutations(['setUser'])
     },
-    }
+}
 </script>
 
 <style lang="scss" scoped>

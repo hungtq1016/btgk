@@ -23,6 +23,14 @@
     {
       "email": "avc@gma.v",
       "id": 6
+    },
+    {
+      "email": "",
+      "id": 7
+    },
+    {
+      "email": "sad@fadf.c",
+      "id": 8
     }
   ],
   "users": [
@@ -39,6 +47,13 @@
       "username": "hung",
       "repassword": "123456",
       "id": 2
+    },
+    {
+      "email": "admin1@gmail.com",
+      "password": "$2a$10$9fpIm7hGAyO9nW.hUWuhEu9L9AEWCH9nLaSkm8jdzbbCKFqq8ZFqO",
+      "username": "admin1",
+      "repassword": "123456",
+      "id": 3
     }
   ],
   "brands": [
@@ -60,17 +75,17 @@
     {
       "id": 4,
       "name": "Asus",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ASUS_Corporate_Logo.svg/1920px-ASUS_Corporate_Logo.svg.png"
+      "url": "https://digitalsignagesummit.org/europe/wp-content/uploads/2017/04/200x200-asus-logo.png"
     },
     {
       "id": 5,
       "name": "Lenovo",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg"
+      "url": "https://www.itts.uk.com/wp-content/uploads/2019/06/Lenovo-Logo-200x200-01-1024x1024-e1561369003522.png"
     },
     {
       "id": 6,
       "name": "Acer",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/1920px-Acer_2011.svg.png"
+      "url": "https://digitalsignagesummit.org/europe/wp-content/uploads/2018/04/acer-Logo-200x200.jpg"
     }
   ],
   "products": [

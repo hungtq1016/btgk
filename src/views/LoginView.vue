@@ -27,6 +27,7 @@
 import axios from 'axios';
 import { APIURL } from '../constant';
 import swal from 'sweetalert';
+import { mapMutations } from 'vuex';
 export default {
     data() {
         return {
@@ -52,14 +53,14 @@ export default {
                 }
             });
             if (login) {
-                var cookie = JSON.stringify(login.data.user);
-                this.$cookies.set("user", cookie);
-                
+                this.setUser(login.data.user)
                 swal("Thành Công", "Đăng Nhập Thành Công", "success");
                 this.$router.push('/');
             }
         },
+        ...mapMutations(['setUser'])
     },
+
 }
 </script>
 
